@@ -1,11 +1,11 @@
 const jwt = require('jsonwebtoken');
-const { secret } = require('../../config');
+const { mysecret } = require('../../config');
 
 module.exports = {
     generateToken: function(data) {
         const options = {
-            expiresIn: '30m'
+            expiresIn: '2h'
         };
-        return jwt.sign({ ...data }, secret, options);
+        return jwt.sign({ ...data }, mysecret, options);
     }
 };

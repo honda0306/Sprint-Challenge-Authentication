@@ -9,7 +9,8 @@ const createUser = (req, res) => {
   User
     .create({ username, password })
       .then(user => {
-        const token = jwt.generateToken({ username: user.username});
+        console.log('user', user);
+        const token = jwt.generateToken({ username: user.username });
         res.status(201).json({ token });
       })
     .catch(error => {
